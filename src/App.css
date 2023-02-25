@@ -1,38 +1,39 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0px;
+    padding: 0px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@media Only screen  and (max-width:1536px ) and (min-width:768px ) {
+    input[type='text'], input[type="email"], input[type="password"]{
+        height: 2.7rem;
+        width: 28rem;
+        border: 1px solid gray;
+        border-radius: 0px;
+        padding: 0.3rem 5rem 0.3rem 1rem;
+    }    
+}
+@media Only screen and (min-width:250px) and (max-width: 767px){
+    input[type='text'], input[type="email"], input[type="password"]{
+        height: 2rem;
+        width: 20rem;
+        border: 1px solid gray;
+        border-radius: 0px;
+        padding: 0.1rem 2rem 0.1rem 0.5rem;
+    }    
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.btn:hover{
+    background-color: #948AD3;
+    color: yellow;
+    transition: background-color 0.1s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pri-bg{
+    background: rgb(140,208,227);
+background: linear-gradient(153deg, rgba(140,208,227,1) 0%, rgba(245,234,119,1) 100%);
 }
