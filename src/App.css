@@ -8,22 +8,24 @@
 }
 
 @media Only screen  and (max-width:1536px ) and (min-width:768px ) {
-    input[type='text'], input[type="email"], input[type="password"]{
+    input[type='text'], input[type="email"], input[type="password"], input[type="number"]{
         height: 2.7rem;
         width: 28rem;
         border: 1px solid gray;
-        border-radius: 0px;
         padding: 0.3rem 5rem 0.3rem 1rem;
     }    
 }
 @media Only screen and (min-width:250px) and (max-width: 767px){
-    input[type='text'], input[type="email"], input[type="password"]{
+    input[type='text'], input[type="email"], input[type="password"], input[type="number"]{
         height: 2rem;
         width: 20rem;
         border: 1px solid gray;
-        border-radius: 0px;
         padding: 0.1rem 2rem 0.1rem 0.5rem;
     }    
+}
+
+.input-round{
+    border-radius: 10px;
 }
 
 .btn:hover{
@@ -32,8 +34,24 @@
     transition: background-color 0.1s;
 }
 
-
 .pri-bg{
     background: rgb(140,208,227);
 background: linear-gradient(153deg, rgba(140,208,227,1) 0%, rgba(245,234,119,1) 100%);
+}
+
+.font-cool{
+    font-family: 'Libre Barcode 39 Text', cursive;
+}
+.font-link{
+    font-family: 'Anton', sans-serif;
+}
+.font-main{
+    font-family: 'Allerta Stencil', sans-serif;
+}
+.font-normal{
+    font-family: 'Dongle', sans-serif;
+}
+.font-link:hover{
+    background-color: #948AD3;
+    transition: background-color 0.1s;
 }

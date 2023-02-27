@@ -1,9 +1,20 @@
 
+import { useContext, useState } from "react";
+import { userData } from "../UserDataContext";
+
 export default function Footer() {
+
+    const user = useContext(userData);
+    const [customer, setCustomer] = useState(false);
+    const [company, setCompany] = useState(false);
+    const [dryStuff, setDryStuff] = useState(false);
+
+
+
     return (
-        <div className="bottom-0">
+        <div className="min-w-full">
             <div>
-                <div className="sm:flex sm:flex-col-reverse md:flex md:flex-col-reverse lg:grid lg:grid-cols-[4fr_1fr] w-auto xs:h-36    lg:h-72 ">
+                <div className="sm:flex sm:flex-col-reverse md:flex md:flex-col-reverse lg:grid lg:grid-cols-[4fr_1fr] w-auto xs:h-fit  lg:h-72 ">
                     <div>
                         <div className=" xs:hidden  py-6 h-full text-white bg-primary lg:flex justify-around">
                             <div>
@@ -48,26 +59,64 @@ export default function Footer() {
                     </div>
                     <div className=" bg-secondary px-5 xs:py-6 py-12">
                         <div className="flex flex-col items-center xs:gap-2 gap-6">
-                            <h4 className="text-2xl">Hear The Latest</h4>
+                            {!user && (<h4 className="text-2xl">Hear The Latest</h4>)}
+                            {user && (<h4 className="text-2xl">Offers for you {user.fullName}</h4>)}
                             <input type="email" placeholder="Email" />
                             <button className=' btn w-11/12 bg-primary text-white text-lg font-bold  lg:px-14 py-2 shadow-below'>
                                 Submit
                             </button>
                         </div>
                     </div>
-                    <div className="flex flex-col gap-2 md:hidden lg:hidden">
-                        <div className=" px-4 mt-2  flex justify-between border border-b-white  ">
+                    <div className=" flex flex-col gap-2 md:hidden lg:hidden">
+                        <div onClick={(e) => {
+                            setCustomer(!customer); setCompany(false);
+                            setDryStuff(false);
+                        }} className=" px-4 mt-2  flex justify-between border border-b-white  ">
                             <div>Customer Care</div>
-                            <div className="text-xl">+</div>
+                            <div value='customer' className="text-xl">+</div>
                         </div>
-                        <div className=" px-4 mt-2  flex justify-between border border-b-white  ">
+                        {customer && (
+                            <div>
+                                <div className="flex flex-col gap-1 text-sm font-bold px-4 cursor-pointer">
+                                    <p>Gift Cards</p>
+                                    <p>Contact Us</p>
+                                    <p>Returns</p>
+                                    <p>Shipping</p>
+                                    <p>Ordering & Payment</p>
+                                </div>
+                            </div>
+                        )}
+                        <div onClick={(e) => {
+                            setCompany(!company); setCustomer(false);
+                            setDryStuff(false)
+                        }} className=" px-4 mt-2  flex justify-between border border-b-white  ">
                             <div>Company</div>
                             <div className="text-xl">+</div>
                         </div>
-                        <div className=" px-4 mt-2  flex justify-between border border-b-white  ">
+                        {company && (
+                            <div>
+                                <div className=" flex flex-col gap-1 text-sm font-bold px-4 cursor-pointer " >
+                                    <p>Contact Us</p>
+                                    <p>Shipping</p>
+                                    <p>Returns</p>
+                                </div>
+                            </div>
+                        )}
+                        <div onClick={(e) => {
+                            setDryStuff(!dryStuff); setCustomer(false);
+                            setCompany(false);
+                        }} className=" px-4 mt-2  flex justify-between border border-b-white  ">
                             <div>Dry Stuff</div>
                             <div className="text-xl">+</div>
                         </div>
+                        {dryStuff && (
+                            <div>
+                                <div className=" flex flex-col gap-1 text-sm font-bold px-4 cursor-pointer pb-5" >
+                                    <p>Terms & Conditions</p>
+                                    <p>Regulations</p>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
