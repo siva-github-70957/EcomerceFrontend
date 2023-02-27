@@ -11,7 +11,8 @@ import AddProduct from './Pages/AddProduct'
 import Footer from './components/Footer';
 import MyProductsPage from './Pages/MyProductsPage';
 import ProductFullPage from './Pages/ProductFullPage';
-axios.defaults.baseURL = 'http://localhost:4000';
+// axios.defaults.baseURL = 'http://localhost:4000';
+axios.defaults.baseURL = 'https://ecommerceapi-qvy3.onrender.com/';
 axios.defaults.withCredentials = true;
 
 function App() {
